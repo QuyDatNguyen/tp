@@ -30,6 +30,12 @@ public class FinanceTracker {
     private static final String PREFIX_DATE = "d/";
     private static final String PREFIX_DESCRIPTION = "desc/";
 
+    // Error and messages constanst
+    public static final String ERROR_CANNOT_FIND_COMMAND = "I don't understand that command. Try again.";
+    public static final String ERROR_NO_MATCHING_EXPENESES = "Sorry, I cannot find any expenses matching your keyword: ";
+    public static final String MESSAGE_MATCHING_EXPENSES = "Here are all matching expenses: ";
+    public static final String ERROR_MISSING_KEYWORD = "Error: Missing keyword";
+
     // Instance fields
     private List<Income> incomes;
     private List<Expense> expenses;
@@ -70,7 +76,7 @@ public class FinanceTracker {
         } else if (input.startsWith(COMMAND_FIND_EXPENSE)) {
             findExpense(input);
         } else {
-            System.out.println("I don't understand that command. Try again.");
+            System.out.println(ERROR_CANNOT_FIND_COMMAND);
         }
     }
 
@@ -222,15 +228,15 @@ public class FinanceTracker {
             keyword += input.substring(COMMAND_FIND_EXPENSE.length()).trim();
         }
         if (keyword.isEmpty()) {
-            System.out.println("Error: Missing keyword");
+            System.out.println(ERROR_MISSING_KEYWORD);
             return;
         }
 
         ExpenseList matchingExpenses = expenseList.get(keyword);
         if (matchingExpenses.getSize() == 0) {
-            System.out.println("Sorry, I cannot find any expenses matching your keyword: " + keyword);
+            System.out.println(ERROR_NO_MATCHING_EXPENESES + keyword);
         } else {
-            System.out.println("Here are all matching expenses: ");
+            System.out.println(MESSAGE_MATCHING_EXPENSES);
             System.out.print(matchingExpenses);
         }
     }

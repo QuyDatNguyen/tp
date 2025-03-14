@@ -89,32 +89,44 @@ public class FinanceTracker {
      */
     public void addIncome(String input) {
         // Remove the "add " prefix using the constant's length.
-        input = input.substring(ADD_COMMAND_PREFIX_LENGTH);
-
-        // Split the input by spaces.
-        String[] parts = input.split(" ");
+        input = input.substring(ADD_COMMAND_PREFIX_LENGTH).trim();
 
         String category = null;
         Double amount = null;
         String date = null;
 
-        for (String part : parts) {
-            if (part.startsWith(PREFIX_CATEGORY)) {
-                category = part.substring(PREFIX_CATEGORY.length());
-            } else if (part.startsWith(PREFIX_AMOUNT)) {
-                try {
-                    amount = Double.parseDouble(part.substring(PREFIX_AMOUNT.length()));
-                } catch (NumberFormatException e) {
-                    System.out.println(
-                            "Error: Invalid amount format. Please enter a valid number.");
-                    return;
-                }
-            } else if (part.startsWith(PREFIX_DATE)) {
-                date = part.substring(PREFIX_DATE.length());
+        // Regular expressions to extract values
+        String categoryPattern = "category/(.*?) (amt/|d/|$)";
+        String amtPattern = "amt/([0-9]+(\\.[0-9]*)?)";
+        String datePattern = "d/([^ ]+)";
+
+        // Match category
+        java.util.regex.Pattern pattern = java.util.regex.Pattern.compile(categoryPattern);
+        java.util.regex.Matcher matcher = pattern.matcher(input);
+        if (matcher.find()) {
+            category = matcher.group(1).trim();
+        }
+
+        // Match amount
+        pattern = java.util.regex.Pattern.compile(amtPattern);
+        matcher = pattern.matcher(input);
+        if (matcher.find()) {
+            try {
+                amount = Double.parseDouble(matcher.group(1));
+            } catch (NumberFormatException e) {
+                System.out.println("Error: Invalid amount format. Please enter a valid number.");
+                return;
             }
         }
 
-        if (category == null) {
+        // Match date
+        pattern = java.util.regex.Pattern.compile(datePattern);
+        matcher = pattern.matcher(input);
+        if (matcher.find()) {
+            date = matcher.group(1).trim();
+        }
+
+        if (category == null || category.isEmpty()) {
             System.out.println("Error: Income category is required.");
             return;
         }
@@ -133,6 +145,7 @@ public class FinanceTracker {
                 String.format("%.2f", amount) + ", Date: " + date);
     }
 
+
     /**
      * Logs an expense in the finance tracker.
      * Expected format: log-expense desc/DESCRIPTION amt/AMOUNT d/DATE
@@ -142,32 +155,44 @@ public class FinanceTracker {
      */
     public void logExpense(String input) {
         // Remove the "log-expense " prefix.
-        input = input.substring(LOG_EXPENSE_COMMAND_PREFIX_LENGTH);
-
-        // Split the input by spaces.
-        String[] parts = input.split(" ");
+        input = input.substring(LOG_EXPENSE_COMMAND_PREFIX_LENGTH).trim();
 
         String description = null;
         Double amount = null;
         String date = null;
 
-        for (String part : parts) {
-            if (part.startsWith(PREFIX_DESCRIPTION)) {
-                description = part.substring(PREFIX_DESCRIPTION.length());
-            } else if (part.startsWith(PREFIX_AMOUNT)) {
-                try {
-                    amount = Double.parseDouble(part.substring(PREFIX_AMOUNT.length()));
-                } catch (NumberFormatException e) {
-                    System.out.println(
-                            "Error: Invalid amount format. Please enter a valid number.");
-                    return;
-                }
-            } else if (part.startsWith(PREFIX_DATE)) {
-                date = part.substring(PREFIX_DATE.length());
+        // Regular expressions to extract values
+        String descPattern = "desc/(.*?) (amt/|d/|$)";
+        String amtPattern = "amt/([0-9]+(\\.[0-9]*)?)";
+        String datePattern = "d/([^ ]+)";
+
+        // Match description
+        java.util.regex.Pattern pattern = java.util.regex.Pattern.compile(descPattern);
+        java.util.regex.Matcher matcher = pattern.matcher(input);
+        if (matcher.find()) {
+            description = matcher.group(1).trim();
+        }
+
+        // Match amount
+        pattern = java.util.regex.Pattern.compile(amtPattern);
+        matcher = pattern.matcher(input);
+        if (matcher.find()) {
+            try {
+                amount = Double.parseDouble(matcher.group(1));
+            } catch (NumberFormatException e) {
+                System.out.println("Error: Invalid amount format. Please enter a valid number.");
+                return;
             }
         }
 
-        if (description == null) {
+        // Match date
+        pattern = java.util.regex.Pattern.compile(datePattern);
+        matcher = pattern.matcher(input);
+        if (matcher.find()) {
+            date = matcher.group(1).trim();
+        }
+
+        if (description == null || description.isEmpty()) {
             System.out.println("Error: Expense description is required.");
             return;
         }

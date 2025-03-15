@@ -107,8 +107,8 @@ class FinanceTrackerTest {
         // Assert
         String expectedOutput = "Here are all matching expenses: " + System.lineSeparator() +
                 "Lunch | $12.50 | 2025-03-13" + System.lineSeparator() +
-                "LateLunch | $13.50 | 2025-03-14" + System.lineSeparator() +
-                "ExpensiveLunch | $30.00 | 2025-03-15" + System.lineSeparator();
+                "Late Lunch | $13.50 | 2025-03-14" + System.lineSeparator() +
+                "Expensive Lunch | $30.00 | 2025-03-15" + System.lineSeparator();
         assertEquals(expectedOutput, outContent.toString());
     }
 
@@ -116,9 +116,9 @@ class FinanceTrackerTest {
         FinanceTracker financeTracker = new FinanceTracker(new Scanner(System.in));
         financeTracker.logExpense("log-expense desc/Lunch amt/12.5 d/2025-03-13");
         financeTracker.logExpense("log-expense desc/Transport amt/3.2 d/2025-03-12");
-        financeTracker.logExpense("log-expense desc/LateLunch amt/13.5 d/2025-03-14");
+        financeTracker.logExpense("log-expense desc/Late Lunch amt/13.5 d/2025-03-14");
         financeTracker.logExpense("log-expense desc/Groceries amt/25.0 d/2025-03-11");
-        financeTracker.logExpense("log-expense desc/ExpensiveLunch amt/30.0 d/2025-03-15");
+        financeTracker.logExpense("log-expense desc/Expensive Lunch amt/30.0 d/2025-03-15");
         return financeTracker;
     }
 

@@ -1,0 +1,22 @@
+Mar 18, 2025 10:59:55 PM budgetflow.FinanceTracker <clinit>
+INFO: FinanceTracker logger initialized
+Mar 18, 2025 10:59:55 PM budgetflow.FinanceTracker <clinit>
+INFO: FinanceTracker logger initialized
+Mar 18, 2025 11:03:59 PM budgetflow.FinanceTracker <clinit>
+INFO: FinanceTracker logger initialized
+Mar 18, 2025 11:03:59 PM budgetflow.FinanceTracker <init>
+INFO: Initializing FinanceTracker with new expense list
+Mar 18, 2025 11:03:59 PM budgetflow.FinanceTracker <init>
+INFO: Loading data from storage
+Mar 18, 2025 11:04:34 PM budgetflow.FinanceTracker <clinit>
+INFO: FinanceTracker logger initialized
+Mar 18, 2025 11:04:34 PM budgetflow.FinanceTracker <init>
+INFO: Initializing FinanceTracker with new expense list
+Mar 18, 2025 11:04:34 PM budgetflow.FinanceTracker <init>
+INFO: Loading data from storage
+Mar 18, 2025 11:05:44 PM budgetflow.FinanceTracker <clinit>
+INFO: FinanceTracker logger initialized
+Mar 18, 2025 11:05:44 PM budgetflow.FinanceTracker <init>
+INFO: Initializing FinanceTracker with new expense list
+Mar 18, 2025 11:05:44 PM budgetflow.FinanceTracker <init>
+INFO: Loading data from storage

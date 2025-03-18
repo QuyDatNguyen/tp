@@ -1,0 +1,42 @@
+Mar 18, 2025 10:59:55 PM budgetflow.MainTracker <clinit>
+INFO: MainTracker logger initialized
+Mar 18, 2025 10:59:55 PM budgetflow.MainTracker main
+INFO: Starting Finance Tracker application
+Mar 18, 2025 10:59:55 PM budgetflow.MainTracker main
+INFO: FinanceTracker instance created
+Mar 18, 2025 10:59:55 PM budgetflow.MainTracker main
+INFO: Application welcome message displayed
+Mar 18, 2025 11:00:50 PM budgetflow.MainTracker main
+SEVERE: Unexpected error in main loop: No line found
+Mar 18, 2025 11:00:50 PM budgetflow.MainTracker main
+INFO: Closing scanner and shutting down application
+Mar 18, 2025 11:00:50 PM budgetflow.MainTracker main
+INFO: Finance Tracker application terminated normally
+Mar 18, 2025 11:03:59 PM budgetflow.MainTracker <clinit>
+INFO: MainTracker logger initialized
+Mar 18, 2025 11:03:59 PM budgetflow.MainTracker main
+INFO: Starting Finance Tracker application
+Mar 18, 2025 11:03:59 PM budgetflow.MainTracker main
+INFO: FinanceTracker instance created
+Mar 18, 2025 11:03:59 PM budgetflow.MainTracker main
+INFO: Application welcome message displayed
+Mar 18, 2025 11:04:30 PM budgetflow.MainTracker main
+SEVERE: Unexpected error in main loop: No line found
+Mar 18, 2025 11:04:30 PM budgetflow.MainTracker main
+INFO: Closing scanner and shutting down application
+Mar 18, 2025 11:04:30 PM budgetflow.MainTracker main
+INFO: Finance Tracker application terminated normally
+Mar 18, 2025 11:04:33 PM budgetflow.MainTracker <clinit>
+INFO: MainTracker logger initialized
+Mar 18, 2025 11:04:34 PM budgetflow.MainTracker main
+INFO: Starting Finance Tracker application
+Mar 18, 2025 11:04:34 PM budgetflow.MainTracker main
+INFO: FinanceTracker instance created
+Mar 18, 2025 11:04:34 PM budgetflow.MainTracker main
+INFO: Application welcome message displayed
+Mar 18, 2025 11:05:34 PM budgetflow.MainTracker main
+SEVERE: Unexpected error in main loop: No line found
+Mar 18, 2025 11:05:34 PM budgetflow.MainTracker main
+INFO: Closing scanner and shutting down application
+Mar 18, 2025 11:05:34 PM budgetflow.MainTracker main
+INFO: Finance Tracker application terminated normally

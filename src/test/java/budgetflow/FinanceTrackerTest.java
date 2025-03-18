@@ -217,134 +217,245 @@ class FinanceTrackerTest {
 
     @Test
     void addIncome_validInput_addsIncome() {
+        // Create an empty FinanceTracker
         FinanceTracker financeTracker = new FinanceTracker(new Scanner(System.in));
+
+        assert financeTracker != null : "FinanceTracker instance should not be null";
+        // Capture system output
         ByteArrayOutputStream outContent = new ByteArrayOutputStream();
         PrintStream originalOut = System.out;
         System.setOut(new PrintStream(outContent));
+
+        // Act
         financeTracker.addIncome("add category/Salary amt/2500.00 d/2025-03-15");
+
+        // Reset System.out
         System.setOut(originalOut);
+
+        // Assert
         String expectedOutput = "Income added: Salary, Amount: $2500.00, Date: 2025-03-15";
         assertEquals(expectedOutput, outContent.toString().trim());
+
+        // Assert: Output should not be empty
+        assert !outContent.toString().trim().isEmpty() : "Expected output should not be empty";
     }
 
     @Test
     void addIncome_missingCategory_showsError() {
+        // Create an empty FinanceTracker
         FinanceTracker financeTracker = new FinanceTracker(new Scanner(System.in));
+        assert financeTracker != null : "FinanceTracker instance should not be null";
+
+        // Capture system output
         ByteArrayOutputStream outContent = new ByteArrayOutputStream();
         PrintStream originalOut = System.out;
         System.setOut(new PrintStream(outContent));
+
+        // Act - missing category
         financeTracker.addIncome("add amt/2500.00 d/2025-03-15");
+
+        // Reset System.out
         System.setOut(originalOut);
+
+        // Assert
         String expectedOutput = "Error: Income category is required.";
         assertEquals(expectedOutput, outContent.toString().trim());
+
+        // Assert: Ensure the error message is not empty
+        assert !outContent.toString().trim().isEmpty() : "Error message should not be empty";
     }
 
     @Test
     void addIncome_missingAmount_showsError() {
+        // Create an empty FinanceTracker
         FinanceTracker financeTracker = new FinanceTracker(new Scanner(System.in));
+
+        // Capture system output
         ByteArrayOutputStream outContent = new ByteArrayOutputStream();
         PrintStream originalOut = System.out;
         System.setOut(new PrintStream(outContent));
+
+        // Act - missing amount
         financeTracker.addIncome("add category/Salary d/2025-03-15");
+
+        // Reset System.out
         System.setOut(originalOut);
+
+        // Assert
         String expectedOutput = "Error: Income amount is required.";
         assertEquals(expectedOutput, outContent.toString().trim());
     }
 
     @Test
     void addIncome_missingDate_showsError() {
+        // Create an empty FinanceTracker
         FinanceTracker financeTracker = new FinanceTracker(new Scanner(System.in));
+
+        // Capture system output
         ByteArrayOutputStream outContent = new ByteArrayOutputStream();
         PrintStream originalOut = System.out;
         System.setOut(new PrintStream(outContent));
+
+        // Act - missing date
         financeTracker.addIncome("add category/Salary amt/2500.00");
+
+        // Reset System.out
         System.setOut(originalOut);
+
+        // Assert
         String expectedOutput = "Error: Income date is required.";
         assertEquals(expectedOutput, outContent.toString().trim());
     }
 
     @Test
     void addIncome_invalidAmountFormat_showsError() {
+        // Create an empty FinanceTracker
         FinanceTracker financeTracker = new FinanceTracker(new Scanner(System.in));
+
+        // Capture system output
         ByteArrayOutputStream outContent = new ByteArrayOutputStream();
         PrintStream originalOut = System.out;
         System.setOut(new PrintStream(outContent));
+
+        // Act - invalid amount format
         financeTracker.addIncome("add category/Salary amt/invalid d/2025-03-15");
+
+        // Reset System.out
         System.setOut(originalOut);
+
+        // Assert
         String expectedOutput = "Error: Income amount is required.";
         assertEquals(expectedOutput, outContent.toString().trim());
     }
 
     @Test
     void logExpense_validInput_logsExpense() {
+        // Create an empty FinanceTracker
         FinanceTracker financeTracker = new FinanceTracker(new Scanner(System.in));
+
+        // Capture system output
         ByteArrayOutputStream outContent = new ByteArrayOutputStream();
         PrintStream originalOut = System.out;
         System.setOut(new PrintStream(outContent));
+
+        // Act
         financeTracker.logExpense("log-expense category/Dining desc/DinnerWithFriends amt/45.75 d/2025-03-15");
+
+        // Reset System.out
         System.setOut(originalOut);
+
+        // Assert
         String expectedOutput = "Expense logged: Dining | DinnerWithFriends | $45.75 | 2025-03-15";
         assertEquals(expectedOutput, outContent.toString().trim());
     }
 
     @Test
     void logExpense_missingCategory_showsError() {
+        // Create an empty FinanceTracker
         FinanceTracker financeTracker = new FinanceTracker(new Scanner(System.in));
+
+        // Capture system output
         ByteArrayOutputStream outContent = new ByteArrayOutputStream();
         PrintStream originalOut = System.out;
         System.setOut(new PrintStream(outContent));
+
+        // Act - missing category
         financeTracker.logExpense("log-expense desc/DinnerWithFriends amt/45.75 d/2025-03-15");
+
+        // Reset System.out
         System.setOut(originalOut);
+
+        // Assert
         String expectedOutput = "Error: Expense category is required.";
         assertEquals(expectedOutput, outContent.toString().trim());
     }
 
     @Test
     void logExpense_missingDescription_showsError() {
+        // Create an empty FinanceTracker
         FinanceTracker financeTracker = new FinanceTracker(new Scanner(System.in));
+
+        // Capture system output
         ByteArrayOutputStream outContent = new ByteArrayOutputStream();
         PrintStream originalOut = System.out;
         System.setOut(new PrintStream(outContent));
+
+        // Act - missing description
         financeTracker.logExpense("log-expense category/Dining amt/45.75 d/2025-03-15");
+
+        // Reset System.out
         System.setOut(originalOut);
+
+        // Assert
         String expectedOutput = "Error: Expense description is required.";
         assertEquals(expectedOutput, outContent.toString().trim());
     }
 
     @Test
     void logExpense_missingAmount_showsError() {
+        // Create an empty FinanceTracker
         FinanceTracker financeTracker = new FinanceTracker(new Scanner(System.in));
+
+        // Capture system output
         ByteArrayOutputStream outContent = new ByteArrayOutputStream();
         PrintStream originalOut = System.out;
         System.setOut(new PrintStream(outContent));
+
+        // Act - missing amount
         financeTracker.logExpense("log-expense category/Dining desc/DinnerWithFriends d/2025-03-15");
+
+        // Reset System.out
         System.setOut(originalOut);
+
+        // Assert
         String expectedOutput = "Error: Expense amount is required.";
         assertEquals(expectedOutput, outContent.toString().trim());
     }
 
     @Test
     void logExpense_missingDate_showsError() {
+        // Create an empty FinanceTracker
         FinanceTracker financeTracker = new FinanceTracker(new Scanner(System.in));
+
+        // Capture system output
         ByteArrayOutputStream outContent = new ByteArrayOutputStream();
         PrintStream originalOut = System.out;
         System.setOut(new PrintStream(outContent));
+
+        // Act - missing date
         financeTracker.logExpense("log-expense category/Dining desc/DinnerWithFriends amt/45.75");
+
+        // Reset System.out
         System.setOut(originalOut);
+
+        // Assert
         String expectedOutput = "Error: Expense date is required.";
         assertEquals(expectedOutput, outContent.toString().trim());
     }
 
     @Test
     void logExpense_invalidAmountFormat_showsError() {
+        // Create an empty FinanceTracker
         FinanceTracker financeTracker = new FinanceTracker(new Scanner(System.in));
+        assert financeTracker != null : "FinanceTracker instance should not be null";
+
+        // Capture system output
         ByteArrayOutputStream outContent = new ByteArrayOutputStream();
         PrintStream originalOut = System.out;
         System.setOut(new PrintStream(outContent));
+
+        // Act - invalid amount format
         financeTracker.logExpense("log-expense category/Dining desc/DinnerWithFriends amt/invalid d/2025-03-15");
+
+        // Reset System.out
         System.setOut(originalOut);
+
+        // Assert
         String expectedOutput = "Error: Expense amount is required.";
         assertEquals(expectedOutput, outContent.toString().trim());
+
+        // Assert: Ensure the log is not empty
+        assert !outContent.toString().trim().isEmpty() : "Expense log should not be empty";
     }
 
     @Test

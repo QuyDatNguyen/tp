@@ -1,3 +1,4 @@
 INCOME|Part-timeJob|300.0|June12
+EXPENSE|food|Lunch|12.5|2025-03-13
 EXPENSE|transport|Transport|3.2|2025-03-12
 EXPENSE|food|Groceries|25.0|2025-03-11
